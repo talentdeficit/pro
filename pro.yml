@@ -1,0 +1,10 @@
+- hosts:  localhost
+  gather_facts:  false
+  sudo:  no
+  tasks:
+    - name:  update homebrew
+      homebrew:  update_homebrew=yes
+    - name:  install erlang
+      homebrew:  name=erlang state=present
+    - name:  install elixir
+      homebrew:  name=elixir state=present
