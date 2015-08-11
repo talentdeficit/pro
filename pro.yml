@@ -4,6 +4,8 @@
   tasks:
     - name:  update homebrew
       homebrew:  update_homebrew=yes
+    - name:  install git
+      homebrew:  name=git state=present
     - name:  install erlang
       homebrew:  name=erlang state=present
     - name:  install elixir
