@@ -1,11 +1,16 @@
 - hosts:  localhost
   gather_facts:  false
   sudo:  no
+  vars:
+    git_name:  alisdair sullivan
+    git_email:  alisdairsullivan@yahoo.ca
   tasks:
     - name:  update homebrew
       homebrew:  update_homebrew=yes
     - name:  install git
       homebrew:  name=git state=present
+    - name:  configure git
+      template:  src=templates/gitconfig.j2 dest=~/.gitconfig
     - name:  install erlang
       homebrew:  name=erlang state=present
     - name:  install elixir
