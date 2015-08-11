@@ -16,4 +16,10 @@
     - name:  install elixir
       homebrew:  name=elixir state=present
     - name:  install todo.txt
-      homebrew:  name=toto-txt state=present
+      homebrew:  name='todo-txt' state=present
+    - name:  ensure ~/todo exists
+      file:  path=~/todo state=directory
+    - name:  configure todo
+      template:  src=templates/todo.config.j2 dest=~/todo/.config
+    - name:  ~/.bash_profile
+      template:  src=templates/bash_profile.j2 dest=~/.bash_profile
